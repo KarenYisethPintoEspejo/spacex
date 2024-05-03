@@ -9,6 +9,30 @@
 body{
     background: linear-gradient(var(--color--one), var(--color--one--rgba));
 }
+
+.description__container1 img, .description__container2 img, .description__container3 img, .description__container4  img, .description__container5 img, .description__container6 img{
+    display: flex;
+    gap: 10px;
+    margin: 0 var(--layout-description-container-x);
+    margin-bottom: var(--layout-description-container-y);
+    flex-direction: column;
+    object-fit: contain;
+    width: 18rem;
+    height: 15rem;
+    border-radius: 3rem;
+    
+}
+
+.description__container1{
+    width: 22rem;
+}
+
+.description__container1 h3{
+  padding: 10px;
+    left: 10%;
+}
+
+
 *::-webkit-scrollbar {
     height: 10px;
     width: 10px;
