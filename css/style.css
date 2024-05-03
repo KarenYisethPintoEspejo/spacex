@@ -20,6 +20,7 @@ body{
     width: 18rem;
     height: 15rem;
     border-radius: 3rem;
+    margin-left: 8%;
     
 }
 
@@ -27,11 +28,20 @@ body{
     width: 22rem;
 }
 
-.description__container1 h3{
-  padding: 10px;
-    left: 10%;
-}
+.description__item{
+    display: flex;
+    flex-direction: column;
+    }
 
+
+.texto{
+    margin: 1% 10% 10% 10%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+}
 
 *::-webkit-scrollbar {
     height: 10px;
