@@ -1,21 +1,37 @@
 import { 
-    getAllRockets, 
-} from "./modules/rockets.js";
-import { 
-    progressRocketWeight,
-    progressPayloadWeights, 
-    progressHeightRocket, 
-    progressDiameterRocket,
-    progressSecondStageDiameterRocket,
-    progressSecondStageHeightRocket
-} from "./modulesComponents/progressBar.js";
+    load,
+    paginationCapsules,
+    paginationRockets
+} from "./modulesComponents/pagination.js";
 
-let information__2 = document.querySelector("#information__2");
-let [Rockets1, Rockets2, Rockets3, Rockets4] = await getAllRockets();
+let footerSelect = async(e, id)=>{
+    e.preventDefault();
+    await load();
+    let li = document.querySelectorAll(".footer ul li")
+    for(let val of li){
+        let [a] = val.children
+        a.classList.remove('select');
+    }
+    let [a] = id.children
+    a.classList.add('select');   
+}
 
-information__2.append(...await progressRocketWeight(Rockets1))
-information__2.append(...await progressPayloadWeights(Rockets1))
-information__2.append(...await progressHeightRocket(Rockets1))
-information__2.append(...await progressDiameterRocket(Rockets1))
-information__2.append(...await progressSecondStageDiameterRocket(Rockets1))
-information__2.append(...await progressSecondStageHeightRocket(Rockets1))
+
+let rocket = document.querySelector("#rocket")
+rocket.addEventListener("click", async(e)=>{
+    await footerSelect(e, rocket)
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = ""
+    paginacion.append(await paginationRockets())
+} )
+
+let capsules = document.querySelector("#capsules")
+capsules.addEventListener("click", async(e)=>{
+    await footerSelect(e, capsules)
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = ""
+    paginacion.append(await paginationCapsules())
+})
+
+
+capsules.click();
